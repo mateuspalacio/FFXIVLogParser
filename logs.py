@@ -7,12 +7,12 @@ import matplotlib.patches as mpatches
 import imageio
 
 #logFolder = "D:\\PikCeLL\\Documents\\TEST"
-logFolder = "D:\\PikCeLL\\Documents\\Logs_FF"
+logFolder = "Logs puandro"
 
-fightID = "80037586"
-phaseColors = ['b','r','y','g']
-phases = [2.20,5.5,11.6,18.83]
-phaseNames = ["LL", "BJCC", "Alex Prime", "Perfect"]
+fightID = "80037569" # ucob = 80037569    tea = 80037586
+phaseColors = ['b','r','y','g','w']
+phases = [2.20,5,10.7,13.3,18.5]
+phaseNames = ["Twin", "Nael", "Baha", "Adds", "Golden"]
 
 wipeRegExp = re.compile(r"33\|([0-9]*)-([0-9]*)-([0-9]*)T([0-9]*):([0-9]*):([0-9]*).*\|"+fightID+"\|40000005.*")
 clearRegExp = re.compile(r"33\|([0-9]*)-([0-9]*)-([0-9]*)T([0-9]*):([0-9]*):([0-9]*).*\|"+fightID+"\|40000003.*")
@@ -21,7 +21,7 @@ startRegExp = re.compile(r"00\|([0-9]*)-([0-9]*)-([0-9]*)T([0-9]*):([0-9]*):([0-
 minFrameDuration = 0.02
 rampUpTime = 5
 rampDownTime = 2
-gifTime = 15
+gifTime = 10
 
 def parseLog(logFile, dict):
 	with open(logFile, 'r', encoding="utf8") as logSource:
@@ -86,7 +86,7 @@ def parseFolder():
 		else:
 			plt.plot(j, dict.peekitem(j)[1][0], color='blue', marker='o', markersize=5)
 		t += datetime.timedelta(seconds=int(dict.peekitem(j)[1][0]*60))
-		plt.title(f"TEA prog : {j+1} pulls ({t} combat time)")
+		plt.title(f"TUD's UCOB prog : {j+1} pulls ({t} combat time)")
 		
 		# Legend
 		patches = []
